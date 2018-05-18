@@ -1,0 +1,53 @@
+.btn-facebook {
+  background-color: #3b5998;
+  color: white;
+}
+
+.btn-facebook:hover {
+  background-color: #304d8a;
+}
+
+.btn-facebook:active {
+  background-color: #2d4373;
+}
+
+.btn-facebook:focus {
+  -webkit-box-shadow: 0px 0em 0px 0.2rem rgba(59, 88, 152, 0.15) !important;
+  box-shadow: 0px 0em 0px 0.2rem rgba(59, 88, 152, 0.15) !important;
+}
+
+.btn-google {
+  background-color: #DD4B39;
+  color: white;
+}
+
+.btn-google:hover {
+  background-color: #e0321c;
+}
+
+.btn-google:active {
+  background-color: #c23321;
+}
+
+.btn-google:focus {
+  -webkit-box-shadow: 0px 0em 0px 0.2rem rgba(221, 76, 57, 0.15) !important;
+  box-shadow: 0px 0em 0px 0.2rem rgba(221, 76, 57, 0.15) !important;
+}
+
+.btn-github {
+  background-color: #808080;
+  color: white;
+}
+
+.btn-google:github {
+  background-color: #837a7a;
+}
+
+.btn-google:github {
+  background-color: #686868;
+}
+
+.btn-google:github {
+  -webkit-box-shadow: 0px 0em 0px 0.2rem rgba(127, 127, 127, 0.15) !important;
+  box-shadow: 0px 0em 0px 0.2rem rgba(127, 127, 127, 0.15) !important;
+}
