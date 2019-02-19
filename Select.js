@@ -1,10 +1,13 @@
 import React from 'react';
-// import { Select } from 'semantic-ui-react'
+import { FormGroup, Select, Label, FormFeedback } from 'reactstrap';
 
 class SelectField extends React.Component {
-  state = {
-    defaultOption: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      defaultOption: null,
+    };
+  }
 
   componentDidMount() {
     const { _id, options, onChange } = this.props;
@@ -17,32 +20,39 @@ class SelectField extends React.Component {
     }
   }
 
-  handleChange = (e) => {
-    const { _id, onChange } = this.props;
-
-    onChange(e, _id);
-  };
-
   render() {
-    const { displayName, options, defaults } = this.props;
+    const {
+      _id,
+      displayName,
+      type,
+      onChange,
+      placeholder,
+      required, // By default is true, if equals false than ignore
+      icon,
+      focusInput,
+      error,
+      defaults,
+      options,
+      autocomplete,
+    } = this.props;
 
     const { defaultOption } = this.state;
 
     return (
-      <div />
-      // <div>
-
-      //   {defaults.showLabels && <label>{displayName}</label>}
-
-      //   <br />
-
-      //   <Select
-      //     defaultValue={defaultOption ? defaultOption.value : options[0].value}
-      //     onChange={this.handleChange}
-      //     options={options}
-      //   />
-
-      // </div>
+      <FormGroup>
+        {defaults.showLabels && <Label>{displayName}</Label>}
+        <Select
+          autoFocus={focusInput}
+          type={type}
+          invalid={Boolean(error)}
+          onChange={e => onChange(e, _id)}
+          onBlur={e => onChange(e, _id)}
+          autoComplete={autocomplete}
+          options={options}
+          defaultValue={defaultOption ? defaultOption.value : options[0].value}
+        />
+        {error && <FormFeedback>{error.errStr}</FormFeedback>}
+      </FormGroup>
     );
   }
 }
