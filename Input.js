@@ -22,6 +22,7 @@ const InputField = (fieldObj) => {
     focusInput,
     error,
     defaults,
+    name,
   } = fieldObj;
 
   const autocomplete = fieldObj.autocomplete || fieldObj._id;
@@ -32,6 +33,8 @@ const InputField = (fieldObj) => {
         {displayName}
       </Label>
       <Input
+        id={_id}
+        name={name}
         autoFocus={focusInput}
         placeholder={defaults.showPlaceholders ? placeholder : ''}
         type={type}
