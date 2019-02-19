@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, Select, Label, FormFeedback } from 'reactstrap';
+import { FormGroup, Input, Label, FormFeedback } from 'reactstrap';
 
 class SelectField extends React.Component {
   constructor(props) {
@@ -24,16 +24,13 @@ class SelectField extends React.Component {
     const {
       _id,
       displayName,
-      type,
       onChange,
-      placeholder,
-      required, // By default is true, if equals false than ignore
-      icon,
       focusInput,
       error,
       defaults,
       options,
       autocomplete,
+      name,
     } = this.props;
 
     const { defaultOption } = this.state;
@@ -41,16 +38,20 @@ class SelectField extends React.Component {
     return (
       <FormGroup>
         {defaults.showLabels && <Label>{displayName}</Label>}
-        <Select
+
+        <Input
+          id={_id}
+          type="select"
+          name={name}
           autoFocus={focusInput}
-          type={type}
           invalid={Boolean(error)}
           onChange={e => onChange(e, _id)}
           onBlur={e => onChange(e, _id)}
           autoComplete={autocomplete}
-          options={options}
           defaultValue={defaultOption ? defaultOption.value : options[0].value}
-        />
+        >
+          {options.map(opt => <option key={opt.key || opt.value} value={opt.value}>{opt.text}</option>)}
+        </Input>
         {error && <FormFeedback>{error.errStr}</FormFeedback>}
       </FormGroup>
     );
