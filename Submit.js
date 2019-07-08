@@ -41,6 +41,7 @@ const Submit = ({
   /* Regular Button */
   return (
     <Button
+      type="submit"
       content={text}
       onClick={onClick}
       disabled={disabled}
