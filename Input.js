@@ -23,6 +23,7 @@ const InputField = (fieldObj) => {
     error,
     defaults,
     name,
+    values,
   } = fieldObj;
 
   const autocomplete = fieldObj.autocomplete || fieldObj._id;
@@ -42,6 +43,7 @@ const InputField = (fieldObj) => {
         onChange={e => onChange(e, _id)}
         onBlur={e => onChange(e, _id)}
         autoComplete={autocomplete}
+        value={values[_id]}
       />
       {error && <FormFeedback>{error.errStr}</FormFeedback>}
     </FormGroup>
